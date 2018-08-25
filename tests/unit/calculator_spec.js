@@ -16,4 +16,10 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal,4);
   })
 
+  it('should be able to remove numbers from the running total', function(){
+    calculator.previousTotal = 5;
+    const actual = calculator.subtract(2);
+    assert.strictEqual(calculator.runningTotal, 3);
+  })
+
 });

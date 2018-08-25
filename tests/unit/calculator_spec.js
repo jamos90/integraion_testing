@@ -16,7 +16,7 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal,4);
   })
 
-  it('should be able to remove numbers from the running total', function(){
+  it('should be able to remove 2 from 5 numbers and get 3', function(){
     calculator.previousTotal = 5;
     const actual = calculator.subtract(2);
     assert.strictEqual(calculator.runningTotal, 3);
@@ -26,6 +26,12 @@ describe('calculator', function () {
     calculator.previousTotal = 10;
     const actual = calculator.multiply(3);
     assert.strictEqual(calculator.runningTotal, 30);
+  })
+
+  it('should be ablit to divide 10 by 2 to get 5', function(){
+    calculator.previousTotal = 10;
+    const actual = calculator.divide(2);
+    assert.strictEqual(calculator.runningTotal, 5);
   })
 
 });

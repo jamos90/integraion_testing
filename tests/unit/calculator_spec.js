@@ -70,11 +70,7 @@ describe('calculator', function () {
     calculator.operatorClick('=');
     calculator.clearClick();
     assert.strictEqual(calculator.previousTotal, 7);
-
-
   })
-
-
   })
 
 

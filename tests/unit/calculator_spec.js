@@ -46,11 +46,32 @@ describe('calculator', function () {
   })
 
   it('should chain multiple operators together', function () {
-    calculator.previousTotal = 1;
-    calculator.previousOperator = "+";
-    calculator.previousOperator = "-";
-    calculator.previousOperator = "*";
-    assert.strictEqual(calculator.previousOperator ,"*");
+    calculator.runningTotal = 4;
+    calculator.operatorClick("+");
+    calculator.operatorClick("+");
+    calculator.operatorClick("+");
+    assert.strictEqual(calculator.runningTotal ,16);
+  })
+
+  it('should stop chaing multiple operators if = is selected', function (){
+    calculator.runningTotal = 0;
+    calculator.operatorClick("+");
+    calculator.numberClick(3);
+    calculator.operatorClick("=");
+    calculator.operatorClick('+')
+    calculator.numberClick(3);
+    assert.strictEqual(calculator.runningTotal, 3);
+  })
+
+  it('should be able to clear function without affecting the current total', function(){
+    calculator.runningTotal = 4
+    calculator.operatorClick('+');
+    calculator.numberClick(3);
+    calculator.operatorClick('=');
+    calculator.clearClick();
+    assert.strictEqual(calculator.previousTotal, 7);
+
+
   })
 
 
